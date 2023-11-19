@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tela_opcoes">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            style="@style/TitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/seja_bem_vindo"
+            android:textColor="@color/rosinha" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="400px"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_margin="200px">
+
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/Botoes"
+                android:layout_width="650px"
+                android:layout_height="wrap_content"
+                android:text="@string/entrar"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn1"/>
+
+            <Button
+                android:id="@+id/btn_cadastro"
+                style="@style/Botoes"
+                android:layout_width="650px"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastro"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn1"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button_pular"
+                style="@style/BotaoRignt"
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:text="@string/pular"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn1"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

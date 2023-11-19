@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_form_busca">
+
+
+    <TextView
+        android:id="@+id/cidade1"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/back"
+        android:layout_margin="20dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/cid_londres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/opcao_classificar"
+        android:layout_width="126dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/style_classificar"
+        app:layout_constraintTop_toBottomOf="@+id/cidade1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/classificar"
+        android:text="@string/classificar"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cidade1"/>
+
+    <View
+        android:layout_width="126dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/style_classificar"
+        app:layout_constraintStart_toEndOf="@id/opcao_classificar"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/filter"
+        android:text="@string/filtros"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/opcao_classificar"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_qtd_propriedades"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="130dp"
+        android:text="@string/qtd_pesquisa"
+        app:layout_constraintTop_toBottomOf="@+id/opcao_classificar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/conteiner_menu"
+        android:layout_width="337dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/view_pesquisa"
+        app:layout_constraintTop_toBottomOf="@+id/text_qtd_propriedades"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_um"
+        android:layout_width="310dp"
+        android:layout_height="129dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="25dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_pesq_host"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_qtd_propriedades" />
+
+    <TextView
+        android:id="@+id/text_familia"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="180dp"
+        android:text="@string/usuario_host2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_um"/>
+
+    <TextView
+        android:id="@+id/avaliacao"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:drawableStart="@drawable/baseline_star_half_24"
+        android:text="@string/num_avaliacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_familia"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_avaliacao"
+        android:layout_marginTop="390dp"
+        android:layout_marginRight="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/avaliacao"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quarto_disponivel"
+        android:layout_marginStart="170dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avaliacao"/>
+
+    <TextView
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/opcoes_propriedades"
+        android:layout_marginTop="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conteiner_menu"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

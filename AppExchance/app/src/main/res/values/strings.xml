@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">AppExchance</string>
+    <string name="title_activity_form_cadastro_intercambista">Cadastro</string>
+    <string name="escolha_seu_tipo_usuario"> Escolha seu tipo de usuário.</string>
+    <string name="intercambista"> Intercambista</string>
+    <string name="host_family"> Host Family</string>
+    <string name="pular"> Pular</string>
+    <string name="seja_bem_vindo"> Seja Bem-Vindo à Exchance.</string>
+    <string name="entrar"> Entrar</string>
+    <string name="cadastro"> Cadastre-se</string>
+    <string name="login"> Login </string>
+    <string name="acessar"> Acessar </string>
+    <string name="esqueceu_senha"> Esqueceu sua senha? Clique aqui.</string>
+    <string name="criar_cadastro"> Ainda não tem conta? Clique aqui.</string>
+    <string name="tem_conta"> Já tem conta? Clique aqui. </string>
+
+    <string-array name="opcoes_usuario">
+        <item> Intercambista </item>
+        <item> Host Family </item>
+    </string-array>
+
+    <string name="bem_vindo">Bem-Vinda Anna!</string>
+    <string name="onde_ir">Para onde ir?</string>
+    <string name="buscas_populares">Buscas Populares</string>
+    <string name="cidades">Cidades</string>
+    <string name="frase_menu">Encontre a Host Family mais próxima do seu local de intercambio.</string>
+    <string name="paises">Paises</string>
+    <string name="menu">Menu</string>
+    <string name="historico">Histórico</string>
+    <string name="chat"> Chat</string>
+    <string name="perfil"> Perfil</string>
+
+
+    <string name="meu_perfil">Meu Perfil</string>
+    <string name="editar">Editar os detalhes</string>
+    <string name="favoritos">Lista de Favoritos</string>
+    <string name="confg">Configurações</string>
+    <string name="usuario_host"> Familia Jones</string>
+    <string name="usuario_host2"> Familia Lovato</string>
+    <string name="usuario_inter"> Anna Alves</string>
+
+    <string name="cid_londres"> Londres</string>
+    <string name="classificar"> Classificar</string>
+    <string name="filtros"> Filtros</string>
+    <string name="qtd_pesquisa"> Exibindo 20 propriedades.</string>
+    <string name="num_avaliacao"> 4,8</string>
+    <string name="status_avaliacao"> Ótimo (250)</string>
+    <string name="quarto_disponivel"> Quarto Disponivel</string>
+    <string name="opcoes_propriedades"> Mais Opções </string>
+
+    <string name="qtd_avaliacao"> 250 Avaliações</string>
+    <string name="sobre_host"> Sobre </string>
+    <string name="text_sobre">
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo
+        consequat</string>
+    <string name="text_sobre_mais"> Ler Mais...</string>
+    <string name="regras_casa"> Visualizar todas as Regras da Casa </string>
+    <string name="insta_1"> Acesso gratuito á Internet</string>
+    <string name="insta_2"> Banheiro Individual</string>
+    <string name="insta_3"> Refeições com a familia</string>
+    <string name="exibir_instalacoes"> Exibir todas as instalações</string>
+
+
+
+</resources>
