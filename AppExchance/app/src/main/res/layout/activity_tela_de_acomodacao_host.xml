@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaDeAcomodacaoHost">
+
+    <TextView
+        style="@style/TitleText"
+        android:id="@+id/cadastro_acomodacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:drawableStart="@drawable/back"
+        android:text="@string/cadastro_acomodacao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        style="@style/TitleText"
+        android:id="@+id/localizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="200dp"
+        android:text="@string/localizacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_acomodacao"/>
+
+    <EditText
+        android:id="@+id/campo_pais"
+        style="@style/Edit_Text"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="24dp"
+        android:hint="País"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/localizacao" />
+
+    <EditText
+        android:id="@+id/campo_cidade"
+        style="@style/Edit_Text"
+        android:layout_width="154dp"
+        android:layout_height="60dp"
+        android:hint="Cidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="124dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/campo_endereco"
+        style="@style/Edit_Text"
+        android:layout_width="332dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:hint="Endereço"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_pais"/>
+
+    <EditText
+        android:id="@+id/campo_cep"
+        style="@style/Edit_Text"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="24dp"
+        android:hint="CEP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_endereco"/>
+
+    <TextView
+        style="@style/TitleText"
+        android:id="@+id/titulo_disponibilidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/Disponibilidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_cep"/>
+
+    <EditText
+        android:id="@+id/disponibilidade_dias"
+        style="@style/Edit_Text"
+        android:layout_width="326dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="32dp"
+        android:hint="A partir de"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_disponibilidade" />
+
+    <EditText
+        android:id="@+id/dias_minimos"
+        style="@style/Edit_Text"
+        android:layout_width="137dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="32dp"
+        android:hint="Dias Minimos"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disponibilidade_dias" />
+
+    <EditText
+        android:id="@+id/dias_maximos"
+        style="@style/Edit_Text"
+        android:layout_width="137dp"
+        android:layout_height="57dp"
+        android:hint="Dias Maximos"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="504dp" />
+
+    <TextView
+        android:id="@+id/acomodacao"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="200dp"
+        android:text="@string/acomodacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dias_minimos"/>
+
+    <Spinner
+        android:id="@+id/tipo_quarto"
+        style="@style/Edit_Text"
+        app:layout_constraintTop_toBottomOf="@+id/acomodacao"
+        tools:ignore="MissingConstraints"/>
+
+    <Spinner
+        android:id="@+id/tipo_banheiro"
+        style="@style/Edit_Text"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_quarto"
+        tools:ignore="MissingConstraints"/>
+
+    <Spinner
+        android:id="@+id/preco_acomodacao"
+        style="@style/Edit_Text"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_banheiro"
+        tools:ignore="MissingConstraints"/>
+
+    <TextView
+        android:id="@+id/regras_limitacoes"
+        style="@style/TitleText"
+        android:layout_width="238dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="90dp"
+        android:text="@string/regras_limitacoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preco_acomodacao"/>
+
+    <EditText
+        android:id="@+id/campo_regras"
+        style="@style/Edit_Text"
+        android:layout_width="340dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regras_limitacoes"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/Botoes"
+        android:layout_width="650px"
+        android:layout_height="wrap_content"
+        android:text="Salvar Acomodação"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/btn1"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_regras"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

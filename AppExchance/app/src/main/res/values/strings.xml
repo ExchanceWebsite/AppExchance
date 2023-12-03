@@ -66,6 +66,24 @@
     <string name="insta_3"> Refeições com a familia</string>
     <string name="exibir_instalacoes"> Exibir todas as instalações</string>
 
+    <string name="endereco"> Localidade </string>
+    <string name="endereco_home"> Rua dos Alfenerios 4, Londres</string>
+    <string name="valor_host"> De US$20</string>
+    <string name="fazer_reserva"> Fazer Reserva </string>
+    
+    <string name="confirme_dados"> Olá Anna, confirme seus dados</string>
+    <string name="forma_pagamento"> Adicione sua forma de pagamento</string>
+    
+    <string name="reserva_final"> Reserva Finalizada.</string>
+    <string name="msg_agradecimento"> Exchance Agradece e Boa Viagem!</string>
+
+    <string name="bemvindo_host"> Bem Vinda Familia Lovato</string>
+    <string name="frase_acomodacao"> Que tal cadastrar sua Acomodação familia!?</string>
+    <string name="cadastro_acomodacao"> Cadastrar Acomodação</string>
+    <string name="localizacao"> Localização</string>
+    <string name="Disponibilidade"> Disponibilidade</string>
+    <string name="acomodacao"> Acomodação</string>
+    <string name="regras_limitacoes"> Regras e Limitações</string>
 
 
 </resources>

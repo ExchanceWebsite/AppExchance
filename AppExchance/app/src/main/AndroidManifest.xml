@@ -15,6 +15,18 @@
         android:theme="@style/Theme.AppExchance"
         tools:targetApi="31">
         <activity
+            android:name=".TelaDeAcomodacaoHost"
+            android:exported="false" />
+        <activity
+            android:name=".TelaPrincipalHost"
+            android:exported="false" />
+        <activity
+            android:name=".TelaDeFinalizacao"
+            android:exported="false" />
+        <activity
+            android:name=".TelaDePagamento"
+            android:exported="false" />
+        <activity
             android:name=".TelaPerfilHost"
             android:exported="false" />
         <activity

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context=".TelaPrincipalHost">
+
+    <TextView
+        android:id="@+id/bemvindo_host"
+        style="@style/TitleText"
+        android:layout_width="285dp"
+        android:layout_height="47dp"
+        android:layout_margin="20dp"
+        android:text="@string/bemvindo_host"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_perfil_host"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/img_usua_host"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/conteiner_menu"
+        android:layout_width="458dp"
+        android:layout_height="529dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/view_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host"/>
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="355dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host" />
+
+    <TextView
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="244dp"
+        android:text="@string/frase_acomodacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host" />
+
+    <Button
+        android:id="@+id/button_adicionar_acomodacao"
+        style="@style/Button_Login"
+        android:layout_width="275dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="368dp"
+        android:text="Adicionar Acomodação"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host" />
+
+    <ImageView
+        android:id="@+id/menu_casa"
+        android:layout_width="78dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="636dp"
+        android:src="@drawable/menu_casa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_perfil"
+        android:layout_width="78dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="636dp"
+        android:src="@drawable/do_utilizador"
+        app:layout_constraintStart_toEndOf="@id/menu_casa"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/Abas_Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_casa" />
+
+    <TextView
+        style="@style/Abas_Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/perfil"
+        app:layout_constraintTop_toBottomOf="@+id/icon_perfil"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="307dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

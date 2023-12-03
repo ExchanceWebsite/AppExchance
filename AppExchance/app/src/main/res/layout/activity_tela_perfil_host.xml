@@ -18,6 +18,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageButton
+        android:id="@+id/button_whatsapp"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/whatsapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/opcao_perfil_host"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="Abrir whatsapp"
+        tools:ignore="OnClick" />
+
     <ImageView
         android:id="@+id/carrossel_img"
         android:layout_width="390dp"
@@ -110,6 +124,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+        android:id="@+id/visu_regras"
         style="@style/TitleText"
         android:layout_width="373dp"
         android:layout_height="33dp"
@@ -119,6 +134,128 @@
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texto_sobre" />
+
+    <TextView
+        android:id="@+id/regra_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/insta_1"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="170dp"
+        android:drawableStart="@drawable/baseline_wifi_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visu_regras"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="628dp"
+        android:layout_marginRight="35dp"
+        android:drawableStart="@drawable/baseline_bathroom_24"
+        android:text="@string/insta_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/regra_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/regra_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/insta_3"
+        android:layout_marginRight="180dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/baseline_room_service_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regra_1"/>
+
+    <TextView
+        android:id="@+id/exibir_insta"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exibir_instalacoes"
+        android:layout_marginTop="700dp"
+        android:layout_marginStart="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/regra_3"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        style="@style/TitleText"
+        android:id="@+id/localidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/endereco"
+        android:layout_marginRight="250dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exibir_insta"/>
+
+    <TextView
+        android:id="@+id/endereco_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/endereco_home"
+        android:layout_marginRight="148dp"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/baseline_room_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/localidade"/>
+
+    <EditText
+        style="@style/Edit_Text"
+        android:id="@+id/data_entrada"
+        android:layout_width="271dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="36dp"
+        android:hint="Data de Entrada (DD/MM/AAAA)"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endereco_home"/>
+
+    <EditText
+        style="@style/Edit_Text"
+        android:id="@+id/data_saida"
+        android:layout_width="271dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="36dp"
+        android:hint="Data de Saída (DD/MM/AAAA)"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_entrada"/>
+
+    <TextView
+        style="@style/TitleText"
+        android:id="@+id/valor_home"
+        android:layout_width="124dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="140dp"
+        android:text="@string/valor_host"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_saida"/>
+
+    <Button
+        style="@style/Button_Login"
+        android:layout_width="158dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="1008dp"
+        android:hint="@string/fazer_reserva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/valor_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
