@@ -4,6 +4,7 @@ package com.example.appexchance.forms
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 
 import com.example.appexchance.databinding.ActivityFormCadastroIntercambistaBinding
@@ -28,14 +29,25 @@ class Form_Cadastro_Intercambista : AppCompatActivity() {
             val email = binding.editEmailIntercambista.text.toString()
             val senha = binding.editSenhaIntercambista.text.toString()
 
-            val localidade: Localidade? = null;
+            val Localizacao = Localidade(1, "", "", "", "")
 
-            if (localidade != null) {
-                localidade.idLocalidade = 1
-            };
 
-            val CadastroInterRequest = CadastroInterRequest(nome, 22, "Estudioso e bem prestativo", email, senha, "11980927174", "47885458881", localidade)
+            val CadastroInterRequest = CadastroInterRequest(
+                nome,
+                22,
+                "Estudioso e bem prestativo",
+                email,
+                senha,
+                "11980927174",
+                "47885458881",
+                Localizacao
+            )
             val apiService = RestClient.create()
+
+            Log.d("Cadastro", CadastroInterRequest.toString())
+
+            Log.d("Cadastro", Localizacao.idLocalidade.toString())
+
 
             val call = apiService.cadastro(CadastroInterRequest)
 
@@ -43,15 +55,29 @@ class Form_Cadastro_Intercambista : AppCompatActivity() {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
 
-                        Toast.makeText(this@Form_Cadastro_Intercambista, "Cadastro realizado com sucesso!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@Form_Cadastro_Intercambista,
+                            "Cadastro realizado com sucesso!!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        val intent = Intent(this@Form_Cadastro_Intercambista, FormLogin::class.java)
+                        startActivity(intent)
 
                     } else {
-                        Toast.makeText(this@Form_Cadastro_Intercambista, "Dados de cadastro invalidos!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@Form_Cadastro_Intercambista,
+                            "Dados de cadastro invalidos!!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
                 override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Toast.makeText(this@Form_Cadastro_Intercambista, "Erro de rede!!!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@Form_Cadastro_Intercambista,
+                        "Erro de rede!!!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     t.printStackTrace()
                 }
             })
@@ -63,17 +89,5 @@ class Form_Cadastro_Intercambista : AppCompatActivity() {
             fazerCadastro()
         }
 
-
-
-
-
-
-
-
-
-
     }
-
-
-
 }

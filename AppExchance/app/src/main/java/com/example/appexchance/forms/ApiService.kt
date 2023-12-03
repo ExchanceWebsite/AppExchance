@@ -19,7 +19,7 @@ interface ApiService {
     fun loginHost(@Body loginRequest: LoginRequest): Call<RespostaDoServidor>
 
     @POST("/hosts")
-    fun cadastroHost(@Body cadastroHostRequest: CadastroHostRequest )
+    fun cadastroHost(@Body cadastroHostRequest: CadastroHostRequest ): Call<Void>
 
     @POST("/estudantes")
     fun cadastro(@Body cadastroInterRequest: CadastroInterRequest): Call<Void>
