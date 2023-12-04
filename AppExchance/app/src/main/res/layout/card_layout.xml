@@ -1,69 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".card_layout">
+    android:layout_height="wrap_content"
+    android:background="@drawable/view_pesquisa"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/cadAcomodacao"
-        android:layout_width="337dp"
-        android:layout_height="258dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="200dp"
-        android:orientation="vertical"
-        android:background="@drawable/view_pesquisa"
-        app:layout_constraintTop_toBottomOf="@id/text_qtd_propriedades"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="NotSibling">
+    <ImageView
+        android:id="@+id/img_um"
+        android:layout_width="310dp"
+        android:layout_height="129dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_pesq_host" />
 
-        <ImageView
-            android:id="@+id/img_um"
-            android:layout_width="310dp"
-            android:layout_height="129dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_pesq_host"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cadAcomodacao" />
+    <TextView
+        android:id="@+id/text_familia"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="@string/usuario_host2" />
 
-        <TextView
-            android:id="@+id/text_familia"
-            style="@style/TitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="@string/usuario_host2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_um"/>
+    <TextView
+        android:id="@+id/text_desc"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Descrição"/>
 
-        <TextView
-            android:id="@+id/text_desc"
-            style="@style/TextAppearance.AppCompat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descrição"
-            android:layout_marginStart="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_familia" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/quarto_disponivel" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/quarto_disponivel"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_desc"/>
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

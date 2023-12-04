@@ -30,6 +30,6 @@ interface ApiService {
     fun buscar(@Query("emai") emai: String, @Query("nome") nome: String): Call<RespostaDadosIntercambista>
 
     @GET("/acomodacoes/acomodacoes-pais-disponivel")
-    fun buscarAcomodacoesPais(@Query("pais") pais: String, @Query("entrada") entrada: String, @Query("saida") saida: String ): List<Acomodacao>
+    fun buscarAcomodacoesPais(@Query("Pais") pais: String, @Query("entrada") entrada: String, @Query("saida") saida: String ): Call<List<Acomodacao>>
 
 }

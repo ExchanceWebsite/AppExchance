@@ -1,67 +1,62 @@
 package com.example.appexchance
 
-import androidx.appcompat.app.AppCompatActivity
+import RestClient
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import android.widget.TextView
-import android.widget.Toast
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.appexchance.adapter.AcomodacoesAdapter
 import com.example.appexchance.databinding.ActivityFormBuscaBinding
-import com.example.appexchance.forms.ApiService
 import com.example.appexchance.forms.models.Acomodacao
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class activity_form_busca : AppCompatActivity() {
+
+    lateinit var adapter: AcomodacoesAdapter
 
     val binding by lazy {
         ActivityFormBuscaBinding.inflate(layoutInflater)
     }
 
-    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val mainLinearLayout = findViewById<ScrollView>(R.id.acomodacoes)
+        adapter = AcomodacoesAdapter()
 
-        fun renderCards(cardDataList: List<Acomodacao>) {
+        binding.recyclerViewListaAcomodacoes.adapter = adapter
 
-            for (Acomodacao in cardDataList) {
-                val cardView = LayoutInflater.from(baseContext).inflate(R.layout.card_layout, null)
+        val apiService = RestClient.create()
 
-                val titleTextView = cardView.findViewById<TextView>(R.id.text_familia)
-                titleTextView.text = Acomodacao.host.nome
+        val call: Call<List<Acomodacao>> = apiService.buscarAcomodacoesPais(
+            "Paris",
+            "2023-12-01",
+            "2023-12-08"
+        )
 
-                val descriptionTextView = cardView.findViewById<TextView>(R.id.text_desc)
-                descriptionTextView.text =  Acomodacao.descricao
+        call.enqueue(object : Callback<List<Acomodacao>> {
+            override fun onResponse(call: Call<List<Acomodacao>>, response: Response<List<Acomodacao>>) {
+                if (response.isSuccessful) {
+                    val listaAcomodacoes: List<Acomodacao>? = response.body()
 
-                // Adicione o cardView ao seu layout principal
-                // Exemplo: linearLayout.addView(cardView)
+                    if (listaAcomodacoes != null) {
+                        adapter.submitedAcomodacoesList(listaAcomodacoes)
+                    }else{
+                        Log.i("TAG_ACOMODACAO", "Erro na chamada: lista Vazia")
+                    }
 
-                mainLinearLayout.addView(cardView)
-
-            }
-        }
-
-        GlobalScope.launch(Dispatchers.IO) {
-            try {
-                val apiService = RestClient.create()
-                val response = apiService.buscarAcomodacoesPais(binding.cidade1.toString(),"2023-12-01","2023-12-08")
-                withContext(Dispatchers.Main) {
-                    renderCards(response)
+                } else {
+                    // Tratar erro na resposta da chamada
+                    Log.e("TAG_ACOMODACAO", "Erro na chamada: ${response.message()}")
                 }
-            } catch (e: Exception) {
-
             }
-        }
 
-
+            override fun onFailure(call: Call<List<Acomodacao>>, t: Throwable) {
+                // Tratar falha na chamada
+                Log.e("TAG_ACOMODACAO", "Falha na chamada: ${t.message}")
+            }
+        })
 
     }
 }
