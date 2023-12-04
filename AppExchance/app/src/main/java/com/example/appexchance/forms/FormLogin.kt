@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.appexchance.TelaPrincipal
+import com.example.appexchance.TelaPrincipalHost
 import com.example.appexchance.TelaUsuarioHost
 import com.example.appexchance.TelaUsuarioIntercambista
 import com.example.appexchance.databinding.ActivityFormLoginBinding
@@ -71,9 +73,9 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         lateinit var telaUsuario: Any
 
                         if(spinner.selectedItem.equals("Intercambista")){
-                             telaUsuario = Intent(this@FormLogin, TelaUsuarioIntercambista::class.java)
+                             telaUsuario = Intent(this@FormLogin, TelaPrincipal::class.java)
                         }else{
-                            telaUsuario = Intent(this@FormLogin, TelaUsuarioHost::class.java)
+                            telaUsuario = Intent(this@FormLogin, TelaPrincipalHost::class.java)
                         }
 
                         if (resposta != null) {

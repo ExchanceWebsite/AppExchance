@@ -17,7 +17,7 @@ class TelaUsuarioHost : AppCompatActivity() {
 
         if (intent != null) {
             val nome = intent.getStringExtra("txt_nome")
-            binding.nomeUsuarioHost.text = nome
+            binding.nomeUsuarioHost.text = "Familia "+nome
         }
     }
 }

@@ -30,14 +30,14 @@ class FormCadastro : AppCompatActivity() {
             val email = binding.editEmail.text.toString()
             val senha = binding.editSenhaHost.text.toString()
             val descricao = binding.editDescricaoHost.text.toString()
-            val verificado = binding.editVerificadoHost.text.toString()
+            val telefone = binding.editTelefoneHost.text.toString()
             val senhaConfirma = binding.editConfirmeSenhaHost.text.toString()
 
             val Localizacao = Localidade(1, "", "", "", "")
 
 
             val cadastroHostRequest =
-                CadastroHostRequest(nome, verificado, descricao, email, senha, Localizacao)
+                CadastroHostRequest(nome, "Verificado no cadastro", descricao, email, senha, Localizacao,telefone)
             val apiService = RestClient.create()
 
             Log.d("Cadastro", cadastroHostRequest.toString())

@@ -13,7 +13,7 @@
         android:layout_width="285dp"
         android:layout_height="47dp"
         android:layout_margin="20dp"
-        android:text="@string/bemvindo_host"
+        android:text=""
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,25 +91,24 @@
         app:layout_constraintStart_toEndOf="@id/menu_casa"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        style="@style/Abas_Menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_casa" />
 
-    <TextView
-        style="@style/Abas_Menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/perfil"
-        app:layout_constraintTop_toBottomOf="@+id/icon_perfil"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="307dp" />
+        <TextView
+            style="@style/Abas_Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/menu"
+            android:paddingLeft="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/menu_casa" />
+
+        <TextView
+            style="@style/Abas_Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/perfil"
+            app:layout_constraintTop_toBottomOf="@+id/icon_perfil"
+            tools:ignore="MissingConstraints"
+            android:paddingLeft="310dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

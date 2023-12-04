@@ -44,41 +44,15 @@
 
     <EditText
         style="@style/Edit_Text"
-        android:id="@+id/campo_nascionalidade"
+        android:id="@+id/campo_senha"
         android:layout_width="261dp"
         android:layout_height="64dp"
         android:layout_marginTop="44dp"
-        android:hint="Nascionalidade"
+        android:hint="senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_nome"/>
-
-    <TextView
-        style="@style/TitleText"
-        android:id="@+id/forma_pagamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/forma_pagamento"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/campo_nascionalidade"/>
-
-    <Button
-        style="@style/Edit_Text"
-        android:id="@+id/pagamento_boleto"
-        android:layout_width="278dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="32dp"
-        android:text="Emitir Boleto"
-        android:textColor="@color/cinza_escuro"
-        android:backgroundTint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forma_pagamento"/>
 
     <Button
         style="@style/Button_Login"
@@ -89,6 +63,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pagamento_boleto"/>
+        app:layout_constraintTop_toBottomOf="@+id/campo_senha"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

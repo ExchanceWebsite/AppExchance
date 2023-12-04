@@ -31,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastro_acomodacao"/>
 
+
     <EditText
         android:id="@+id/campo_pais"
         style="@style/Edit_Text"
@@ -50,10 +51,10 @@
         android:layout_height="60dp"
         android:hint="Cidade"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="124dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="121dp" />
 
     <EditText
         android:id="@+id/campo_endereco"
@@ -146,7 +147,8 @@
         android:id="@+id/tipo_quarto"
         style="@style/Edit_Text"
         app:layout_constraintTop_toBottomOf="@+id/acomodacao"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="41dp" />
 
     <Spinner
         android:id="@+id/tipo_banheiro"

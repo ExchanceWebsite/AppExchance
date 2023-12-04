@@ -55,9 +55,9 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_nome_host" />
 
     <EditText
-        android:id="@+id/edit_verificado_host"
+        android:id="@+id/edit_telefone_host"
         style="@style/Edit_Text"
-        android:hint="Verificado"
+        android:hint="Telefone"
         app:layout_constraintStart_toStartOf="@+id/containerComponents"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
@@ -68,7 +68,7 @@
         android:hint="Descrição"
         app:layout_constraintStart_toStartOf="@+id/containerComponents"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/edit_verificado_host" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_telefone_host" />
 
     <EditText
         android:id="@+id/edit_senha_host"

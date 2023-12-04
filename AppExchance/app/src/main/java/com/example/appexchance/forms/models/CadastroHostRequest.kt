@@ -6,7 +6,8 @@ data class CadastroHostRequest (
     val descricao: String,
     val email: String,
     val senha: String,
-    val localidade: Localidade
+    val localidade: Localidade,
+    val telefone:String
  )
 
 

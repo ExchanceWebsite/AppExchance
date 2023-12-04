@@ -1,5 +1,6 @@
 package com.example.appexchance.forms
 
+import com.example.appexchance.forms.models.Acomodacao
 import com.example.appexchance.forms.models.CadastroHostRequest
 import com.example.appexchance.forms.models.CadastroInterRequest
 import com.example.appexchance.forms.models.LoginRequest
@@ -27,5 +28,8 @@ interface ApiService {
 
     @GET("/estudantes/estudante")
     fun buscar(@Query("emai") emai: String, @Query("nome") nome: String): Call<RespostaDadosIntercambista>
+
+    @GET("/acomodacoes/acomodacoes-pais-disponivel")
+    fun buscarAcomodacoesPais(@Query("pais") pais: String, @Query("entrada") entrada: String, @Query("saida") saida: String ): List<Acomodacao>
 
 }
