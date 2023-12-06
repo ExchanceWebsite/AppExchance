@@ -27,6 +27,7 @@ class TelaPerfilHost : AppCompatActivity() {
     }
 
     private fun displayInfo() = with(binding) {
+
         nomeHost.text = "Familía ${acomodacao.host.nome}"
         opcaoPerfilHost.text = "Familía ${acomodacao.host.nome}"
         opcaoPerfilHost.setOnClickListener {

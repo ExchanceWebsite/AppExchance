@@ -18,11 +18,15 @@ class TelaFormBusca : AppCompatActivity() {
         ActivityFormBuscaBinding.inflate(layoutInflater)
     }
 
+    private val bundle by lazy {
+        intent.extras
+    }
+
     private val api by lazy {
         RestClient.create().buscarAcomodacoesPais(
-            "Paris",
-            "2023-12-01",
-            "2023-12-08"
+            bundle?.getString("pais") ?: "",
+            "1999-12-01",
+            "2024-12-01"
         )
     }
 
@@ -48,8 +52,11 @@ class TelaFormBusca : AppCompatActivity() {
     }
 
     private fun onBackButton() {
-        binding.cidade1.setOnClickListener {
-            onBackPressed()
+        binding.cidade1.apply {
+            text = bundle?.getString("pais")
+            setOnClickListener {
+                onBackPressed()
+            }
         }
     }
 
