@@ -1,261 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".TelaPerfilHost">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/opcao_perfil_host"
-        style="@style/TitleText"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/usuario_host2"
-        android:drawableStart="@drawable/back"
-        android:layout_margin="20dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        tools:context=".TelaPerfilHost">
 
-    <ImageButton
-        android:id="@+id/button_whatsapp"
-        android:layout_width="45dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/whatsapp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/opcao_perfil_host"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="Abrir whatsapp"
-        tools:ignore="OnClick" />
+        <TextView
+            android:id="@+id/opcao_perfil_host"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/back"
+            android:text="@string/usuario_host2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/carrossel_img"
-        android:layout_width="390dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/img_pesq_host"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opcao_perfil_host"/>
+        <ImageButton
+            android:id="@+id/button_whatsapp"
+            android:layout_width="45dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="18dp"
+            android:onClick="Abrir whatsapp"
+            android:src="@drawable/whatsapp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/opcao_perfil_host"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="OnClick" />
 
-    <TextView
-        android:id="@+id/nome_host"
-        style="@style/TitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/usuario_host2"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="155dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carrossel_img"/>
+        <ImageView
+            android:id="@+id/carrossel_img"
+            android:layout_width="390dp"
+            android:layout_height="155dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/img_pesq_host"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/opcao_perfil_host" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cid_londres"
-        android:layout_marginRight="230dp"
-        android:drawableStart="@drawable/baseline_room_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome_host"/>
+        <TextView
+            android:id="@+id/nome_host"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="155dp"
+            android:text="@string/usuario_host2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carrossel_img" />
 
-    <TextView
-        android:id="@+id/avaliacao"
-        style="@style/TitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="250dp"
-        android:drawableStart="@drawable/baseline_star_half_24"
-        android:text="@string/num_avaliacao"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintStart_toEndOf="@id/nome_host"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/cidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="230dp"
+            android:drawableStart="@drawable/baseline_room_24"
+            android:text="@string/cid_londres"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome_host" />
 
-    <TextView
-        android:id="@+id/localizacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/qtd_avaliacao"
-        android:layout_marginStart="220dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avaliacao"/>
+        <TextView
+            android:id="@+id/avaliacao"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="250dp"
+            android:drawableStart="@drawable/baseline_star_half_24"
+            android:text="@string/num_avaliacao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nome_host"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/sobre"
-        style="@style/TitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="240dp"
-        android:text="@string/sobre_host"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/localizacao"/>
+        <TextView
+            android:id="@+id/localizacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:text="@string/qtd_avaliacao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avaliacao" />
 
-    <TextView
-        android:id="@+id/texto_sobre"
-        android:layout_width="274dp"
-        android:layout_height="130dp"
-        android:layout_marginRight="80dp"
-        android:text="@string/text_sobre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sobre" />
+        <TextView
+            android:id="@+id/sobre"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="240dp"
+            android:text="@string/sobre_host"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/localizacao" />
 
-    <TextView
-        style="@style/TitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="520dp"
-        android:layout_marginStart="220dp"
-        android:text="@string/text_sobre_mais"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintStart_toEndOf="@id/texto_sobre"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/texto_sobre"
+            android:layout_width="274dp"
+            android:layout_height="130dp"
+            android:layout_marginRight="80dp"
+            android:text="@string/text_sobre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.885"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sobre" />
 
-    <TextView
-        android:id="@+id/visu_regras"
-        style="@style/TitleText"
-        android:layout_width="373dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/regras_casa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto_sobre" />
+        <TextView
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="520dp"
+            android:text="@string/text_sobre_mais"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/texto_sobre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/regra_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/insta_1"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="170dp"
-        android:drawableStart="@drawable/baseline_wifi_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visu_regras"/>
+        <TextView
+            android:id="@+id/visu_regras"
+            style="@style/TitleText"
+            android:layout_width="373dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="72dp"
+            android:text="@string/regras_casa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/texto_sobre" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="628dp"
-        android:layout_marginRight="35dp"
-        android:drawableStart="@drawable/baseline_bathroom_24"
-        android:text="@string/insta_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/regra_1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/regra_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="170dp"
+            android:drawableStart="@drawable/baseline_wifi_24"
+            android:text="@string/insta_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/visu_regras" />
 
-    <TextView
-        android:id="@+id/regra_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/insta_3"
-        android:layout_marginRight="180dp"
-        android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/baseline_room_service_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regra_1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="628dp"
+            android:layout_marginRight="35dp"
+            android:drawableStart="@drawable/baseline_bathroom_24"
+            android:text="@string/insta_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/regra_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/exibir_insta"
-        style="@style/TitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/exibir_instalacoes"
-        android:layout_marginTop="700dp"
-        android:layout_marginStart="90dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintStart_toEndOf="@id/regra_3"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/regra_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="180dp"
+            android:drawableStart="@drawable/baseline_room_service_24"
+            android:text="@string/insta_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regra_1" />
 
-    <TextView
-        style="@style/TitleText"
-        android:id="@+id/localidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/endereco"
-        android:layout_marginRight="250dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exibir_insta"/>
+        <TextView
+            android:id="@+id/exibir_insta"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="700dp"
+            android:text="@string/exibir_instalacoes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/regra_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/endereco_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/endereco_home"
-        android:layout_marginRight="148dp"
-        android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/baseline_room_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/localidade"/>
+        <TextView
+            android:id="@+id/localidade"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="250dp"
+            android:text="@string/endereco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exibir_insta" />
 
-    <EditText
-        style="@style/Edit_Text"
-        android:id="@+id/data_entrada"
-        android:layout_width="271dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="36dp"
-        android:hint="Data de Entrada (DD/MM/AAAA)"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endereco_home"/>
+        <TextView
+            android:id="@+id/endereco_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="148dp"
+            android:drawableStart="@drawable/baseline_room_24"
+            android:text="@string/endereco_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/localidade" />
 
-    <EditText
-        style="@style/Edit_Text"
-        android:id="@+id/data_saida"
-        android:layout_width="271dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="36dp"
-        android:hint="Data de Saída (DD/MM/AAAA)"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/data_entrada"/>
+        <EditText
+            android:id="@+id/data_entrada"
+            style="@style/Edit_Text"
+            android:layout_width="271dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="36dp"
+            android:hint="Data de Entrada (DD/MM/AAAA)"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endereco_home" />
 
-    <TextView
-        style="@style/TitleText"
-        android:id="@+id/valor_home"
-        android:layout_width="124dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="140dp"
-        android:text="@string/valor_host"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/data_saida"/>
+        <EditText
+            android:id="@+id/data_saida"
+            style="@style/Edit_Text"
+            android:layout_width="271dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="36dp"
+            android:hint="Data de Saída (DD/MM/AAAA)"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_entrada" />
 
-    <Button
-        style="@style/Button_Login"
-        android:layout_width="158dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="1008dp"
-        android:hint="@string/fazer_reserva"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/valor_home"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/valor_home"
+            style="@style/TitleText"
+            android:layout_width="124dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="140dp"
+            android:text="@string/valor_host"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_saida" />
+
+        <Button
+            style="@style/Button_Login"
+            android:layout_width="158dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="1008dp"
+            android:hint="@string/fazer_reserva"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/valor_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

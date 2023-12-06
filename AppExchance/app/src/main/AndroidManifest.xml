@@ -56,7 +56,7 @@
             android:name=".forms.FormCadastro"
             android:exported="false" />
         <activity
-            android:name=".activity_form_busca"
+            android:name=".TelaFormBusca"
             android:exported="false" />
         <activity
             android:name=".tela_opcao_usuario"
