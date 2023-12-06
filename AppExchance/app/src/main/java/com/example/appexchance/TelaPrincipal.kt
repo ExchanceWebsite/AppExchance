@@ -16,7 +16,7 @@ class TelaPrincipal : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.imgUm.setOnClickListener{
-            val opcaoCidade = Intent(this, activity_form_busca::class.java)
+            val opcaoCidade = Intent(this, TelaFormBusca::class.java)
 
             startActivity(opcaoCidade)
         }

@@ -1,5 +1,7 @@
 package com.example.appexchance.forms.models
 
+import java.io.Serializable
+
 data class CadastroHostRequest (
     val nome: String,
     val verificado: String,
@@ -8,7 +10,7 @@ data class CadastroHostRequest (
     val senha: String,
     val localidade: Localidade,
     val telefone:String
- )
+ ) : Serializable
 
 
 //"idHostFamily": 1,

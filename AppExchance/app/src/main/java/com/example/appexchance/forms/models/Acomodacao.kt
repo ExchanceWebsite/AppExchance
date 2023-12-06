@@ -1,5 +1,7 @@
 package com.example.appexchance.forms.models
 
+import java.io.Serializable
+
 data class Acomodacao(
     val idAcomodacao: Int,
     val host: CadastroHostRequest,
@@ -11,4 +13,4 @@ data class Acomodacao(
     val fimDisponibilidade: String,
     val valorDiaria: Int,
     val regras: String
-)
+) : Serializable
