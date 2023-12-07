@@ -2,12 +2,14 @@ package com.example.appexchance
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.appexchance.adapter.CountryAdapter
 import com.example.appexchance.databinding.ActivityTelaPrincipalBinding
 import com.example.appexchance.forms.models.Pais
+import com.example.appexchance.utils.SharedPrefsManager
 
 class TelaPrincipal : AppCompatActivity() {
 
@@ -19,23 +21,14 @@ class TelaPrincipal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setupIconAction()
+        setupToolbar()
         setupRecyclerView()
-
-        if (intent != null) {
-            val nome = intent.getStringExtra("txt_nome")
-            binding.msgBemVindo.text = "Bem vindo(a) "+nome
-        }
     }
 
-    private fun setupIconAction() {
+    private fun setupToolbar() {
+        binding.msgBemVindo.text = "Bem vindo(a) ${SharedPrefsManager(this).getInfo().nome}"
         binding.iconPerfil.setOnClickListener {
-            val opcaoPerfil = Intent(this, TelaUsuarioIntercambista::class.java)
-            val nome = intent.getStringExtra("txt_nome")
-
-            opcaoPerfil.putExtra("txt_nome", nome)
-
-            startActivity(opcaoPerfil)
+            startActivity(Intent(this, TelaUsuarioIntercambista::class.java))
         }
     }
 
@@ -43,7 +36,6 @@ class TelaPrincipal : AppCompatActivity() {
         val countryAdapter = CountryAdapter(getData()) { pais ->
             val bundle = Bundle()
             bundle.putString("pais", pais)
-            bundle.putString("id_estudante", intent.getStringExtra("id_estudante"))
             startActivity(
                 Intent(this@TelaPrincipal, TelaFormBusca::class.java).putExtras(bundle)
             )

@@ -12,6 +12,7 @@ import com.example.appexchance.forms.models.Acomodacao
 import com.example.appexchance.forms.models.CadastroHostRequest
 import com.example.appexchance.forms.models.Reserva
 import com.example.appexchance.forms.models.RespostaDadosIntercambista
+import com.example.appexchance.utils.SharedPrefsManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,22 +36,17 @@ class TelaPerfilHost : AppCompatActivity() {
     }
 
     private val idUser by lazy {
-
-       bundle?.getString("id_estudante")
-
+        SharedPrefsManager(this).getInfo().idEstudante
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         displayInfo()
-
     }
 
     private fun displayInfo() = with(binding) {
-
         nomeHost.text = "Familía ${acomodacao.host?.nome}"
         opcaoPerfilHost.text = "Familía ${acomodacao.host?.nome}"
         opcaoPerfilHost.setOnClickListener {
@@ -68,8 +64,6 @@ class TelaPerfilHost : AppCompatActivity() {
         btnReservar.setOnClickListener {
             requestedNewReserve()
         }
-
-
     }
 
     private fun openWhatsapp() {
@@ -93,11 +87,10 @@ class TelaPerfilHost : AppCompatActivity() {
     }
 
     private fun requestedNewReserve() = with(binding) {
-        Log.d("Reserva", "Iniciando solicitação de reserva")
         api.cadastroReserva(
             Reserva(
                 estudante = RespostaDadosIntercambista(
-                    idEstudante = idUser?.toInt() ?: 0
+                    idEstudante = idUser
                 ),
                 entrada = dataEntrada.text.toString(),
                 saida = dataSaida.text.toString(),
@@ -111,18 +104,14 @@ class TelaPerfilHost : AppCompatActivity() {
             )
         ).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-
-
                 if (response.isSuccessful) {
                     startActivity(Intent(this@TelaPerfilHost, TelaDeFinalizacao::class.java))
                 } else {
-                    // Trate os casos de erro aqui
                     Log.e("Reserva", "Erro na solicitação de reserva: ${response.code()}")
                 }
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                // Log em caso de falha
                 Log.e("Reserva", "Falha na solicitação de reserva", t)
             }
         })

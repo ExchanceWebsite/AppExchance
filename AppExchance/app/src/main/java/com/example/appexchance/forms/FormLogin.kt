@@ -3,6 +3,7 @@ package com.example.appexchance.forms
 import android.content.Intent
 import com.example.appexchance.R
 import android.os.Bundle;
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter;
@@ -16,13 +17,13 @@ import com.example.appexchance.TelaUsuarioIntercambista
 import com.example.appexchance.databinding.ActivityFormLoginBinding
 import com.example.appexchance.forms.models.LoginRequest
 import com.example.appexchance.forms.models.RespostaDoServidor
+import com.example.appexchance.utils.SharedPrefsManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-
 
     val binding by lazy {
         ActivityFormLoginBinding.inflate(layoutInflater)
@@ -32,11 +33,13 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val spinner : Spinner = findViewById(R.id.select_box)
+        val spinner: Spinner = findViewById(R.id.select_box)
 
-        ArrayAdapter.createFromResource(this,
+        ArrayAdapter.createFromResource(
+            this,
             R.array.opcoes_usuario,
-            android.R.layout.simple_spinner_item).also { arrayAdapter ->
+            android.R.layout.simple_spinner_item
+        ).also { arrayAdapter ->
             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
             spinner.adapter = arrayAdapter
@@ -54,9 +57,9 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             val loginRequest = LoginRequest(email, senha)
             val apiService = RestClient.create()
 
-            if(spinner.selectedItem.equals("Intercambista")){
+            if (spinner.selectedItem.equals("Intercambista")) {
                 return apiService.login(loginRequest)
-            }else{
+            } else {
                 return apiService.loginHost(loginRequest)
             }
 
@@ -66,30 +69,34 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             val call = fazerLogin()
 
             call.enqueue(object : Callback<RespostaDoServidor> {
-                override fun onResponse(call: Call<RespostaDoServidor>, response: Response<RespostaDoServidor>) {
+                override fun onResponse(
+                    call: Call<RespostaDoServidor>,
+                    response: Response<RespostaDoServidor>
+                ) {
                     if (response.isSuccessful) {
-                        Toast.makeText(this@FormLogin, "autenticação feita!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@FormLogin, "autenticação feita!!!", Toast.LENGTH_SHORT)
+                            .show()
                         val resposta = response.body()
-                        lateinit var telaUsuario: Any
 
-                        if(spinner.selectedItem.equals("Intercambista")){
-                             telaUsuario = Intent(this@FormLogin, TelaPrincipal::class.java)
-                        }else{
-                            telaUsuario = Intent(this@FormLogin, TelaPrincipalHost::class.java)
+                        val telaUsuario = if (spinner.selectedItem.equals("Intercambista")) {
+                            Intent(this@FormLogin, TelaPrincipal::class.java)
+                        } else {
+                            Intent(this@FormLogin, TelaPrincipalHost::class.java)
                         }
 
                         if (resposta != null) {
-                            telaUsuario.putExtra("id_estudante",resposta.idEstudante)
-                            telaUsuario.putExtra("txt_nome", resposta.nome)
-                            telaUsuario.putExtra("txt_email", resposta.email)
+                            SharedPrefsManager(this@FormLogin).saveInfo(resposta)
                         } else {
                             telaUsuario.putExtra("txt_busca", "Sem resposta válida do servidor")
                         }
+
                         startActivity(telaUsuario)
-
-
                     } else {
-                        Toast.makeText(this@FormLogin, "Usuario ou Senha invalidos!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@FormLogin,
+                            "Usuario ou Senha invalidos!!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
@@ -98,7 +105,6 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 }
             })
         }
-
 
 
     }
