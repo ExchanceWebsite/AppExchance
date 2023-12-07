@@ -2,16 +2,27 @@ package com.example.appexchance.forms.models
 
 import java.io.Serializable
 
-data class CadastroHostRequest (
+data class CadastroHostRequest(
     val idHostFamily: Int,
-    val nome: String,
-    val verificado: String,
-    val descricao: String,
-    val email: String,
-    val senha: String,
-    val localidade: Localidade,
-    val telefone:String
- ) : Serializable
+    val nome: String?,
+    val verificado: String?,
+    val descricao: String?,
+    val email: String?,
+    val senha: String?,
+    val localidade: Localidade?,
+    val telefone: String?
+) : Serializable {
+    constructor(idHostFamily: Int) : this(
+        idHostFamily = idHostFamily,
+        nome = null,
+        verificado = null,
+        descricao = null,
+        email = null,
+        senha = null,
+        localidade = null,
+        telefone = null
+    )
+}
 
 
 //"idHostFamily": 1,

@@ -43,7 +43,7 @@ class AcomodacoesAdapter(
         }
 
         fun bind() {
-            binding.textFamilia.text = getData().host.nome
+            binding.textFamilia.text = getData().host?.nome
             binding.textDesc.text = getData().descricao
         }
 

@@ -43,6 +43,7 @@ class TelaPrincipal : AppCompatActivity() {
         val countryAdapter = CountryAdapter(getData()) { pais ->
             val bundle = Bundle()
             bundle.putString("pais", pais)
+            bundle.putString("id_estudante", intent.getStringExtra("id_estudante"))
             startActivity(
                 Intent(this@TelaPrincipal, TelaFormBusca::class.java).putExtras(bundle)
             )

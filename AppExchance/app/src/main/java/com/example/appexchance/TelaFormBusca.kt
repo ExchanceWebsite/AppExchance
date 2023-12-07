@@ -47,6 +47,7 @@ class TelaFormBusca : AppCompatActivity() {
         adapter = AcomodacoesAdapter {
             val bundle = Bundle()
             bundle.putSerializable("acomodacao", it)
+            bundle.putString("id_estudante", bundle.getString("id_estudante"))
             startActivity(Intent(this, TelaPerfilHost::class.java).putExtras(bundle))
         }
 
