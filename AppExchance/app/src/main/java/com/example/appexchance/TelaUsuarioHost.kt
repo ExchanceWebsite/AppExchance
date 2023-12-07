@@ -1,9 +1,9 @@
 package com.example.appexchance
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appexchance.databinding.ActivityTelaUsuarioHostBinding
-import com.example.appexchance.databinding.ActivityTelaUsuarioIntercambistaBinding
+import com.example.appexchance.utils.SharedPrefsManager
 
 class TelaUsuarioHost : AppCompatActivity() {
 
@@ -15,9 +15,6 @@ class TelaUsuarioHost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        if (intent != null) {
-            val nome = intent.getStringExtra("txt_nome")
-            binding.nomeUsuarioHost.text = "Familia "+nome
-        }
+        binding.nomeUsuarioHost.text = "Familía ${SharedPrefsManager(this).getInfo().nome}"
     }
 }

@@ -43,9 +43,8 @@ class TelaFormBusca : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         adapter = AcomodacoesAdapter {
-            val bundle = Bundle()
-            bundle.putSerializable("acomodacao", it)
-            startActivity(Intent(this, TelaPerfilHost::class.java).putExtras(bundle))
+            bundle?.putSerializable("acomodacao", it)
+            startActivity(Intent(this, TelaPerfilHost::class.java).putExtras(bundle ?: Bundle()))
         }
 
         binding.recyclerViewListaAcomodacoes.adapter = adapter

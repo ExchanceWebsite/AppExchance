@@ -2,12 +2,14 @@ package com.example.appexchance
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.appexchance.adapter.CountryAdapter
 import com.example.appexchance.databinding.ActivityTelaPrincipalBinding
 import com.example.appexchance.forms.models.Pais
+import com.example.appexchance.utils.SharedPrefsManager
 
 class TelaPrincipal : AppCompatActivity() {
 
@@ -19,15 +21,14 @@ class TelaPrincipal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setupIconAction()
+        setupToolbar()
         setupRecyclerView()
     }
 
-    private fun setupIconAction() {
+    private fun setupToolbar() {
+        binding.msgBemVindo.text = "Bem vindo(a) ${SharedPrefsManager(this).getInfo().nome}"
         binding.iconPerfil.setOnClickListener {
-            val opcaoPerfilHost = Intent(this, TelaUsuarioHost::class.java)
-
-            startActivity(opcaoPerfilHost)
+            startActivity(Intent(this, TelaUsuarioIntercambista::class.java))
         }
     }
 

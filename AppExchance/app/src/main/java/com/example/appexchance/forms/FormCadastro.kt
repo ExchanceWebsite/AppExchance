@@ -37,7 +37,7 @@ class FormCadastro : AppCompatActivity() {
 
 
             val cadastroHostRequest =
-                CadastroHostRequest(nome, "Verificado no cadastro", descricao, email, senha, Localizacao,telefone)
+                CadastroHostRequest(0 ,nome, "Verificado no cadastro", descricao, email, senha, Localizacao,telefone)
             val apiService = RestClient.create()
 
             Log.d("Cadastro", cadastroHostRequest.toString())
