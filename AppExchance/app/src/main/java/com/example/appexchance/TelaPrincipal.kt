@@ -21,13 +21,21 @@ class TelaPrincipal : AppCompatActivity() {
 
         setupIconAction()
         setupRecyclerView()
+
+        if (intent != null) {
+            val nome = intent.getStringExtra("txt_nome")
+            binding.msgBemVindo.text = "Bem vindo(a) "+nome
+        }
     }
 
     private fun setupIconAction() {
         binding.iconPerfil.setOnClickListener {
-            val opcaoPerfilHost = Intent(this, TelaUsuarioHost::class.java)
+            val opcaoPerfil = Intent(this, TelaUsuarioIntercambista::class.java)
+            val nome = intent.getStringExtra("txt_nome")
 
-            startActivity(opcaoPerfilHost)
+            opcaoPerfil.putExtra("txt_nome", nome)
+
+            startActivity(opcaoPerfil)
         }
     }
 

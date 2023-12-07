@@ -79,6 +79,7 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         }
 
                         if (resposta != null) {
+                            telaUsuario.putExtra("id_estudante",resposta.idEstudante)
                             telaUsuario.putExtra("txt_nome", resposta.nome)
                             telaUsuario.putExtra("txt_email", resposta.email)
                         } else {

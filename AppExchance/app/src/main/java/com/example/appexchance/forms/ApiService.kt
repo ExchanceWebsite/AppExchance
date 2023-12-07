@@ -4,6 +4,7 @@ import com.example.appexchance.forms.models.Acomodacao
 import com.example.appexchance.forms.models.CadastroHostRequest
 import com.example.appexchance.forms.models.CadastroInterRequest
 import com.example.appexchance.forms.models.LoginRequest
+import com.example.appexchance.forms.models.Reserva
 import com.example.appexchance.forms.models.RespostaDadosIntercambista
 import com.example.appexchance.forms.models.RespostaDoServidor
 import retrofit2.Call
@@ -24,6 +25,9 @@ interface ApiService {
 
     @POST("/estudantes")
     fun cadastro(@Body cadastroInterRequest: CadastroInterRequest): Call<Void>
+
+    @POST("/reservas")
+    fun cadastroReserva(@Body reserva: Reserva): Call<Unit>
 
 
     @GET("/estudantes/estudante")

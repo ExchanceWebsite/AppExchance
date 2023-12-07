@@ -23,7 +23,7 @@ class TelaUsuarioIntercambista : AppCompatActivity() {
 
         if (intent != null) {
             val nome = intent.getStringExtra("txt_nome")
-            binding.nomeUsuarioHost.text = nome
+            binding.nomeUsuarioHost.text = "Bem Vindo(a) "+nome
         }
     }
 

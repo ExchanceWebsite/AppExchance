@@ -39,6 +39,8 @@ class TelaFormBusca : AppCompatActivity() {
         onBackButton()
         setupRecyclerView()
         requestAccommodations()
+
+
     }
 
     private fun setupRecyclerView() {

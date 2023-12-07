@@ -1,12 +1,24 @@
 package com.example.appexchance
 
+import RestClient
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appexchance.databinding.ActivityTelaPerfilHostBinding
 import com.example.appexchance.forms.models.Acomodacao
+import com.example.appexchance.forms.models.CadastroHostRequest
+import com.example.appexchance.forms.models.CadastroInterRequest
+import com.example.appexchance.forms.models.Localidade
+import com.example.appexchance.forms.models.Reserva
+import com.example.appexchance.forms.models.RespostaDadosIntercambista
+import com.example.appexchance.forms.models.RespostaDoServidor
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class TelaPerfilHost : AppCompatActivity() {
 
@@ -19,11 +31,22 @@ class TelaPerfilHost : AppCompatActivity() {
         bundle?.getSerializable("acomodacao") as Acomodacao
     }
 
+    private val api by lazy {
+        RestClient.create()
+    }
+
+    private val idUser by lazy {
+
+        intent.getStringExtra("id_estudante")
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         displayInfo()
+
     }
 
     private fun displayInfo() = with(binding) {
@@ -42,6 +65,11 @@ class TelaPerfilHost : AppCompatActivity() {
         buttonWhatsapp.setOnClickListener {
             openWhatsapp()
         }
+        btnReservar.setOnClickListener {
+            requestedNewReserve()
+        }
+
+
     }
 
     private fun openWhatsapp() {
@@ -62,5 +90,30 @@ class TelaPerfilHost : AppCompatActivity() {
                 setPackage("com.android.vending")
             })
         }
+    }
+
+    private fun requestedNewReserve() {
+        Log.d("Reserva", "Iniciando solicitação de reserva")
+//        api.cadastroReserva(Reserva().enqueue(object : Callback<Unit> {
+//            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+//                // Log após a resposta
+//                Log.d("Reserva", "Resposta recebida do servidor")
+//                lateinit var telaUsuario: Any
+//                val resposta = response.body()
+//
+//                if (response.isSuccessful) {
+//                    telaUsuario = Intent(this@TelaPerfilHost, TelaDeFinalizacao::class.java)
+//                    startActivity(telaUsuario)
+//                } else {
+//                    // Trate os casos de erro aqui
+//                    Log.e("Reserva", "Erro na solicitação de reserva: ${response.code()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<Unit>, t: Throwable) {
+//                // Log em caso de falha
+//                Log.e("Reserva", "Falha na solicitação de reserva", t)
+//            }
+//        })
     }
 }
