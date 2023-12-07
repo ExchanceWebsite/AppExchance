@@ -1,19 +1,16 @@
 package com.example.appexchance.forms
 
+import RestClient
 import android.content.Intent
-import com.example.appexchance.R
-import android.os.Bundle;
-import android.util.Log
+import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity
+import com.example.appexchance.R
 import com.example.appexchance.TelaPrincipal
 import com.example.appexchance.TelaPrincipalHost
-import com.example.appexchance.TelaUsuarioHost
-import com.example.appexchance.TelaUsuarioIntercambista
 import com.example.appexchance.databinding.ActivityFormLoginBinding
 import com.example.appexchance.forms.models.LoginRequest
 import com.example.appexchance.forms.models.RespostaDoServidor
@@ -23,7 +20,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class FormLogin : AppCompatActivity() {
 
     val binding by lazy {
         ActivityFormLoginBinding.inflate(layoutInflater)
@@ -33,89 +30,83 @@ class FormLogin : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val spinner: Spinner = findViewById(R.id.select_box)
+        setupDropDown()
+        setupButton()
+    }
 
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.opcoes_usuario,
-            android.R.layout.simple_spinner_item
-        ).also { arrayAdapter ->
-            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    private fun setupDropDown() {
+        ArrayAdapter
+            .createFromResource(this, R.array.opcoes_usuario, android.R.layout.simple_spinner_item)
+            .also { arrayAdapter ->
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.selectBox.apply {
+                    adapter = arrayAdapter
+                    onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(
+                            p: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long
+                        ) {}
 
-            spinner.adapter = arrayAdapter
-
-            spinner.onItemSelectedListener = this
-        }
-
-
-        fun fazerLogin(): Call<RespostaDoServidor> {
-
-            val email = binding.editEmail.text.toString()
-            val senha = binding.editSenha.text.toString()
-
-
-            val loginRequest = LoginRequest(email, senha)
-            val apiService = RestClient.create()
-
-            if (spinner.selectedItem.equals("Intercambista")) {
-                return apiService.login(loginRequest)
-            } else {
-                return apiService.loginHost(loginRequest)
+                        override fun onNothingSelected(parent: AdapterView<*>?) {}
+                    }
+                }
             }
+    }
 
-        }
+    private fun doLogin(): Call<RespostaDoServidor> {
+        val email = binding.editEmail.text.toString()
+        val senha = binding.editSenha.text.toString()
 
+        val loginRequest = LoginRequest(email, senha)
+        val apiService = RestClient.create()
+
+        return if (binding.selectBox.selectedItem.equals("Intercambista"))
+            apiService.login(loginRequest)
+        else
+            apiService.loginHost(loginRequest)
+    }
+
+    private fun setupButton() {
         binding.buttonAcessar.setOnClickListener {
-            val call = fazerLogin()
+            requestLogin()
+        }
+    }
 
-            call.enqueue(object : Callback<RespostaDoServidor> {
-                override fun onResponse(
-                    call: Call<RespostaDoServidor>,
-                    response: Response<RespostaDoServidor>
-                ) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(this@FormLogin, "autenticação feita!!!", Toast.LENGTH_SHORT)
-                            .show()
-                        val resposta = response.body()
+    private fun requestLogin() {
+        doLogin().enqueue(object : Callback<RespostaDoServidor> {
+            override fun onResponse(
+                call: Call<RespostaDoServidor>,
+                response: Response<RespostaDoServidor>
+            ) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@FormLogin, "autenticação feita!!!", Toast.LENGTH_SHORT)
+                        .show()
 
-                        val telaUsuario = if (spinner.selectedItem.equals("Intercambista")) {
+                    val telaUsuario =
+                        if (binding.selectBox.selectedItem.equals("Intercambista")) {
                             Intent(this@FormLogin, TelaPrincipal::class.java)
                         } else {
                             Intent(this@FormLogin, TelaPrincipalHost::class.java)
                         }
 
-                        if (resposta != null) {
-                            SharedPrefsManager(this@FormLogin).saveInfo(resposta)
-                        } else {
-                            telaUsuario.putExtra("txt_busca", "Sem resposta válida do servidor")
-                        }
-
+                    response.body()?.let {
+                        SharedPrefsManager(this@FormLogin).saveInfo(it)
                         startActivity(telaUsuario)
-                    } else {
-                        Toast.makeText(
-                            this@FormLogin,
-                            "Usuario ou Senha invalidos!!!",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }
+                } else {
+                    Toast.makeText(
+                        this@FormLogin,
+                        "Usuario ou Senha invalidos!!!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
+            }
 
-                override fun onFailure(call: Call<RespostaDoServidor>, t: Throwable) {
-                    Toast.makeText(this@FormLogin, "Erro de rede", Toast.LENGTH_SHORT).show()
-                }
-            })
-        }
-
-
+            override fun onFailure(call: Call<RespostaDoServidor>, t: Throwable) {
+                Toast.makeText(this@FormLogin, "Erro de rede", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        val selectedItem = p0?.getItemAtPosition(p2)
-        // Faça algo com a opção selecionada, se necessário
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        // Lidar com a situação em que nada foi selecionado, se necessário
-    }
-
 }
