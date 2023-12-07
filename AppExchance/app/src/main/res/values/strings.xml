@@ -13,6 +13,8 @@
     <string name="esqueceu_senha"> Esqueceu sua senha? Clique aqui.</string>
     <string name="criar_cadastro"> Ainda não tem conta? Clique aqui.</string>
     <string name="tem_conta"> Já tem conta? Clique aqui. </string>
+    <string name="reservado"> reservado </string>
+    <string name="livre"> livre </string>
 
     <string-array name="opcoes_usuario">
         <item> Intercambista </item>

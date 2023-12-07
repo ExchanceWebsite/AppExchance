@@ -6,4 +6,6 @@
     <color name="rosinha">#E4B69D</color>
     <color name="cinza">#F1F5F4</color>
     <color name="cinza_escuro">#A0A0A0</color>
+    <color name="reservado">#FB2C2C</color>
+    <color name="livre">#1AE435</color>
 </resources>
