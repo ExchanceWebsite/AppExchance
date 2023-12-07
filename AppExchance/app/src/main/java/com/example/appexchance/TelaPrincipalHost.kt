@@ -1,44 +1,68 @@
 package com.example.appexchance
 
+import RestClient
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.appexchance.adapter.AcomodacoesHostAdapter
 import com.example.appexchance.databinding.ActivityTelaPrincipalHostBinding
-import com.example.appexchance.databinding.ActivityTelaUsuarioHostBinding
+import com.example.appexchance.forms.models.Acomodacao
+import com.example.appexchance.utils.SharedPrefsManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class TelaPrincipalHost : AppCompatActivity() {
 
-
     val binding by lazy {
         ActivityTelaPrincipalHostBinding.inflate(layoutInflater)
+    }
+
+    private val api by lazy {
+        RestClient.create().buscarAcomodacoesHost(SharedPrefsManager(this).getInfo().idHostFamily)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val nome = intent.getStringExtra("txt_nome")
-        if (intent != null) {
-            binding.bemvindoHost.text = "Bem vinda Familia " + nome
+        displayContentScreen()
+        requestedList()
+        Log.i("TEST", (SharedPrefsManager(this).getInfo().idEstudante).toString())
+    }
+
+    private fun displayContentScreen() = with(binding) {
+        bemvindoHost.text =
+            "Bem vindo(a) ${SharedPrefsManager(this@TelaPrincipalHost).getInfo().nome}"
+
+        iconPerfil.setOnClickListener {
+            startActivity(Intent(this@TelaPrincipalHost, TelaUsuarioHost::class.java))
         }
+    }
 
+    private fun requestedList() {
+        api.enqueue(object : Callback<List<Acomodacao>> {
+            override fun onResponse(
+                call: Call<List<Acomodacao>>,
+                response: Response<List<Acomodacao>>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        setupRecyclerView(it)
+                    }
+                } else {
+                    Log.e("EMPTY", "Lista vazia.")
+                }
+            }
 
-        binding.iconPerfil.setOnClickListener {
-            lateinit var telaUsuario: Any
-            telaUsuario = Intent(this@TelaPrincipalHost, TelaUsuarioHost::class.java)
+            override fun onFailure(call: Call<List<Acomodacao>>, t: Throwable) {
+                Log.e("ERROR", "Falha na solicitação das acomodações", t)
+            }
+        })
+    }
 
-            telaUsuario.putExtra("txt_nome", nome)
-
-            startActivity(telaUsuario)
-        }
-
-        binding.buttonAdicionarAcomodacao.setOnClickListener {
-            lateinit var telaUsuario: Any
-
-            telaUsuario = Intent(this@TelaPrincipalHost, TelaDeAcomodacaoHost::class.java)
-
-            startActivity(telaUsuario as Intent)
-        }
-
+    private fun setupRecyclerView(list: List<Acomodacao>) {
+        binding.rvAcomodacoes.adapter = AcomodacoesHostAdapter(list)
     }
 }

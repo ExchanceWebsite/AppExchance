@@ -29,11 +29,13 @@ interface ApiService {
     @POST("/reservas")
     fun cadastroReserva(@Body reserva: Reserva): Call<Unit>
 
-
     @GET("/estudantes/estudante")
     fun buscar(@Query("emai") emai: String, @Query("nome") nome: String): Call<RespostaDadosIntercambista>
 
     @GET("/acomodacoes/acomodacoes-pais-disponivel")
     fun buscarAcomodacoesPais(@Query("Pais") pais: String, @Query("entrada") entrada: String, @Query("saida") saida: String ): Call<List<Acomodacao>>
+
+    @GET("/acomodacoes/acomodacoes-host")
+    fun buscarAcomodacoesHost(@Query("idHost") idHost: Int): Call<List<Acomodacao>>
 
 }

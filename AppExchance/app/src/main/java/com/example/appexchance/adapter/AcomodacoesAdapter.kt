@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.appexchance.databinding.CardLayoutBinding
+import com.example.appexchance.databinding.AdapterCardLayoutBinding
 import com.example.appexchance.forms.models.Acomodacao
 
 class AcomodacoesAdapter(
@@ -15,7 +15,7 @@ class AcomodacoesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AcomodacoesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = CardLayoutBinding.inflate(inflater, parent, false)
+        val binding = AdapterCardLayoutBinding.inflate(inflater, parent, false)
 
         return AcomodacoesViewHolder(binding)
     }
@@ -33,7 +33,7 @@ class AcomodacoesAdapter(
         notifyDataSetChanged()
     }
 
-    inner class AcomodacoesViewHolder(private val binding: CardLayoutBinding) :
+    inner class AcomodacoesViewHolder(private val binding: AdapterCardLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
