@@ -45,4 +45,7 @@ interface ApiService {
     @GET("/acomodacoes/acomodacoes-host")
     fun buscarAcomodacoesHost(@Query("idHost") idHost: Int): Call<List<Acomodacao>>
 
+    @GET("/reservas/reservas-estudante")
+    fun buscarReservasEstudante(@Query("idEstudante") idEstudante: Int): Call<List<Reserva>>
+
 }
