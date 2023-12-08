@@ -8,103 +8,120 @@
     tools:context=".TelaDeNotificacoes">
 
     <TextView
-        android:id="@+id/bemvindo_host"
+        android:id="@+id/titulo_estudante"
         style="@style/TitleText"
-        android:layout_width="214dp"
-        android:layout_height="33dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
         android:layout_marginTop="24dp"
-        android:text="Notificações"
+        android:textAlignment="textStart"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Bem vindo(a) Felipe" />
 
     <View
         android:id="@+id/conteiner_menu"
-        android:layout_width="458dp"
-        android:layout_height="529dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/view_menu"
+        app:layout_constraintBottom_toTopOf="@id/menu_casa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host"/>
+        app:layout_constraintTop_toBottomOf="@+id/titulo_estudante" />
 
     <TextView
-        android:layout_width="374dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="130dp"
-        android:shadowColor="@color/black"
-        android:shadowRadius="4"
-        android:text="Cadastro de Acomodação realizado com sucesso."
-        android:textColor="@color/cinza_escuro"
-        android:textSize="20sp"
+        android:id="@+id/titulo_minhas_reservas"
+        style="@style/TitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/minhas_reservas"
+        app:layout_constraintEnd_toEndOf="@id/conteiner_menu"
+        app:layout_constraintStart_toStartOf="@id/conteiner_menu"
+        app:layout_constraintTop_toTopOf="@id/conteiner_menu" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_reservas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@id/conteiner_menu"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
+        app:layout_constraintTop_toBottomOf="@id/titulo_minhas_reservas"
+        tools:listitem="@layout/adapter_card_layout_reserva" />
 
     <ImageView
         android:id="@+id/menu_casa"
         android:layout_width="78dp"
         android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/menu_casa"
+        app:layout_constraintBottom_toTopOf="@id/label_casa"
+        app:layout_constraintEnd_toStartOf="@id/menu_reserva"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/conteiner_menu" />
 
     <TextView
+        android:id="@+id/label_casa"
         style="@style/Abas_Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="300dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_casa"/>
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_casa"
+        app:layout_constraintStart_toStartOf="@id/menu_casa"
+        app:layout_constraintTop_toBottomOf="@+id/menu_casa" />
 
     <ImageView
-        android:id="@+id/icon_notificacao"
+        android:id="@+id/menu_reserva"
         android:layout_width="78dp"
         android:layout_height="44dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="630dp"
-        android:src="@drawable/sino"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginTop="20dp"
+        android:src="@drawable/baseline_room_service_24"
+        app:layout_constraintBottom_toTopOf="@id/label_reserva"
+        app:layout_constraintEnd_toStartOf="@id/menu_perfil"
+        app:layout_constraintStart_toEndOf="@id/menu_casa"
+        app:layout_constraintTop_toBottomOf="@id/conteiner_menu"
+        app:tint="@color/white" />
 
     <TextView
+        android:id="@+id/label_reserva"
         style="@style/Abas_Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Notificações"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_notificacao" />
+        android:layout_marginBottom="20dp"
+        android:text="@string/reserva"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_reserva"
+        app:layout_constraintStart_toStartOf="@id/menu_reserva"
+        app:layout_constraintTop_toBottomOf="@+id/menu_reserva" />
 
     <ImageView
-        android:id="@+id/icon_perfil"
+        android:id="@+id/menu_perfil"
         android:layout_width="78dp"
         android:layout_height="44dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/do_utilizador"
-        app:layout_constraintStart_toEndOf="@id/icon_notificacao"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/label_perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/menu_reserva"
+        app:layout_constraintTop_toBottomOf="@id/conteiner_menu" />
 
     <TextView
+        android:id="@+id/label_perfil"
         style="@style/Abas_Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="300dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_perfil"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_perfil"
+        app:layout_constraintStart_toStartOf="@id/menu_perfil"
+        app:layout_constraintTop_toBottomOf="@+id/menu_perfil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

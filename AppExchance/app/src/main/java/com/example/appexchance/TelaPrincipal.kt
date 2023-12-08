@@ -2,12 +2,12 @@ package com.example.appexchance
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.appexchance.adapter.CountryAdapter
 import com.example.appexchance.databinding.ActivityTelaPrincipalBinding
+import com.example.appexchance.forms.FormLogin
 import com.example.appexchance.forms.models.Pais
 import com.example.appexchance.utils.SharedPrefsManager
 
@@ -23,12 +23,14 @@ class TelaPrincipal : AppCompatActivity() {
 
         setupToolbar()
         setupRecyclerView()
+        setupOnClick()
     }
 
-    private fun setupToolbar() {
-        binding.msgBemVindo.text = "Bem vindo(a) ${SharedPrefsManager(this).getInfo().nome}"
-        binding.iconPerfil.setOnClickListener {
-            startActivity(Intent(this, TelaUsuarioIntercambista::class.java))
+    private fun setupToolbar() = with(binding) {
+        bemvindoHost.text = "Bem vindo(a) ${SharedPrefsManager(this@TelaPrincipal).getInfo().nome}"
+        btnSair.setOnClickListener {
+            SharedPrefsManager(this@TelaPrincipal).deleteInfo()
+            startActivity(Intent(this@TelaPrincipal, FormLogin::class.java))
         }
     }
 
@@ -57,6 +59,18 @@ class TelaPrincipal : AppCompatActivity() {
                 return true
             }
         })
+    }
+
+    private fun setupOnClick() = with(binding) {
+        menuCasa.setOnClickListener {
+            startActivity(Intent(this@TelaPrincipal, TelaPrincipal::class.java))
+        }
+        menuReserva.setOnClickListener {
+            startActivity(Intent(this@TelaPrincipal, TelaDeNotificacoes::class.java))
+        }
+        menuPerfil.setOnClickListener {
+            startActivity(Intent(this@TelaPrincipal, TelaUsuarioIntercambista::class.java))
+        }
     }
 
     private fun getData() = listOf(

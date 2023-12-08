@@ -18,6 +18,9 @@
             android:name=".TelaDeAcomodacaoHost"
             android:exported="false" />
         <activity
+            android:name=".TelaDeNotificacoes"
+            android:exported="false" />
+        <activity
             android:name=".TelaPrincipalHost"
             android:exported="false" />
         <activity

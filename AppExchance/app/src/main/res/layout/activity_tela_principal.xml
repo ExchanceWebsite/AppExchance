@@ -3,52 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/blue"
     tools:context=".TelaPrincipal">
 
     <TextView
-        android:id="@+id/msg_bem_vindo"
+        android:id="@+id/bemvindo_host"
         style="@style/TitleText"
-        android:layout_width="212dp"
-        android:layout_height="35dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/bem_vindo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/btn_sair"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/btn_sair"
+        tools:text="Bem vindo familia" />
 
-    <ImageView
-        android:layout_width="61dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/img_usua_inter"
-        app:layout_constraintStart_toEndOf="@id/msg_bem_vindo"
+    <Button
+        android:id="@+id/btn_sair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/reservado"
+        android:text="@string/sair"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/barra_pesquisa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:background="@drawable/barra_pesquisar"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msg_bem_vindo"
+        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host"
         app:queryHint="@string/onde_ir" />
 
     <View
         android:id="@+id/conteiner_menu"
-        android:layout_width="506dp"
-        android:layout_height="554dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/view_menu"
+        app:layout_constraintBottom_toTopOf="@id/menu_reserva"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra_pesquisa" />
 
@@ -57,32 +58,29 @@
         style="@style/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="8dp"
         android:text="@string/buscas_populares"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barra_pesquisa" />
+        app:layout_constraintTop_toBottomOf="@+id/barra_pesquisa"
+        app:layout_constraintTop_toTopOf="@id/conteiner_menu" />
 
     <TextView
         android:id="@+id/frase_paises"
         style="@style/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="8dp"
         android:text="@string/paises"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frase_buscas" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cities"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="20dp"
+        android:layout_marginVertical="20dp"
         app:layout_constraintBottom_toBottomOf="@id/conteiner_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,22 +93,70 @@
         android:id="@+id/menu_casa"
         android:layout_width="78dp"
         android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="712dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/menu_casa"
+        app:layout_constraintBottom_toTopOf="@id/label_casa"
+        app:layout_constraintEnd_toStartOf="@id/menu_reserva"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/conteiner_menu" />
 
+    <TextView
+        android:id="@+id/label_casa"
+        style="@style/Abas_Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_casa"
+        app:layout_constraintStart_toStartOf="@id/menu_casa"
+        app:layout_constraintTop_toBottomOf="@+id/menu_casa" />
 
     <ImageView
-        android:id="@+id/icon_perfil"
+        android:id="@+id/menu_reserva"
         android:layout_width="78dp"
         android:layout_height="44dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="712dp"
-        android:src="@drawable/do_utilizador"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/baseline_room_service_24"
+        app:layout_constraintBottom_toTopOf="@id/label_reserva"
+        app:layout_constraintEnd_toStartOf="@id/menu_perfil"
         app:layout_constraintStart_toEndOf="@id/menu_casa"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/conteiner_menu"
+        app:tint="@color/white" />
 
+    <TextView
+        android:id="@+id/label_reserva"
+        style="@style/Abas_Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/reserva"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_reserva"
+        app:layout_constraintStart_toStartOf="@id/menu_reserva"
+        app:layout_constraintTop_toBottomOf="@+id/menu_reserva" />
+
+    <ImageView
+        android:id="@+id/menu_perfil"
+        android:layout_width="78dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/do_utilizador"
+        app:layout_constraintBottom_toTopOf="@id/label_perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/menu_reserva"
+        app:layout_constraintTop_toBottomOf="@id/conteiner_menu" />
+
+    <TextView
+        android:id="@+id/label_perfil"
+        style="@style/Abas_Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_perfil"
+        app:layout_constraintStart_toStartOf="@id/menu_perfil"
+        app:layout_constraintTop_toBottomOf="@+id/menu_perfil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
