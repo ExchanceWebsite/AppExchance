@@ -8,36 +8,38 @@
     tools:context=".TelaPrincipal">
 
     <TextView
-        android:id="@+id/msg_bem_vindo"
+        android:id="@+id/bemvindo_host"
         style="@style/TitleText"
-        android:layout_width="212dp"
-        android:layout_height="35dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/bem_vindo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/btn_sair"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/btn_sair"
+        tools:text="Bem vindo familia" />
 
-    <ImageView
-        android:layout_width="61dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/img_usua_inter"
-        app:layout_constraintStart_toEndOf="@id/msg_bem_vindo"
+    <Button
+        android:id="@+id/btn_sair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/reservado"
+        android:text="@string/sair"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/barra_pesquisa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:background="@drawable/barra_pesquisar"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msg_bem_vindo"
+        app:layout_constraintTop_toBottomOf="@+id/bemvindo_host"
         app:queryHint="@string/onde_ir" />
 
     <View

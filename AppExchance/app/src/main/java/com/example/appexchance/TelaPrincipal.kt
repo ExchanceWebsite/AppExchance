@@ -7,6 +7,7 @@ import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.appexchance.adapter.CountryAdapter
 import com.example.appexchance.databinding.ActivityTelaPrincipalBinding
+import com.example.appexchance.forms.FormLogin
 import com.example.appexchance.forms.models.Pais
 import com.example.appexchance.utils.SharedPrefsManager
 
@@ -25,8 +26,12 @@ class TelaPrincipal : AppCompatActivity() {
         setupOnClick()
     }
 
-    private fun setupToolbar() {
-        binding.msgBemVindo.text = "Bem vindo(a) ${SharedPrefsManager(this).getInfo().nome}"
+    private fun setupToolbar() = with(binding) {
+        bemvindoHost.text = "Bem vindo(a) ${SharedPrefsManager(this@TelaPrincipal).getInfo().nome}"
+        btnSair.setOnClickListener {
+            SharedPrefsManager(this@TelaPrincipal).deleteInfo()
+            startActivity(Intent(this@TelaPrincipal, FormLogin::class.java))
+        }
     }
 
     private fun setupRecyclerView() {

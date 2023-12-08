@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appexchance.adapter.AcomodacoesHostAdapter
 import com.example.appexchance.databinding.ActivityTelaPrincipalHostBinding
+import com.example.appexchance.forms.FormLogin
 import com.example.appexchance.forms.models.Acomodacao
 import com.example.appexchance.utils.SharedPrefsManager
 import retrofit2.Call
@@ -30,13 +31,19 @@ class TelaPrincipalHost : AppCompatActivity() {
         displayContentScreen()
         requestedList()
         addAcomodacao()
-        Log.i("TEST", (SharedPrefsManager(this).getInfo().idEstudante).toString())
+        setupToolbar()
+    }
+
+    private fun setupToolbar() = with(binding) {
+        bemvindoHost.text =
+            "Bem vindo(a) ${SharedPrefsManager(this@TelaPrincipalHost).getInfo().nome}"
+        btnSair.setOnClickListener {
+            SharedPrefsManager(this@TelaPrincipalHost).deleteInfo()
+            startActivity(Intent(this@TelaPrincipalHost, FormLogin::class.java))
+        }
     }
 
     private fun displayContentScreen() = with(binding) {
-        bemvindoHost.text =
-            "Bem vindo(a) ${SharedPrefsManager(this@TelaPrincipalHost).getInfo().nome}"
-
         iconPerfil.setOnClickListener {
             startActivity(Intent(this@TelaPrincipalHost, TelaUsuarioHost::class.java))
         }
@@ -67,7 +74,7 @@ class TelaPrincipalHost : AppCompatActivity() {
         binding.rvAcomodacoes.adapter = AcomodacoesHostAdapter(list)
     }
 
-    private fun addAcomodacao(){
+    private fun addAcomodacao() {
         binding.btnCadastroAcomodacao.setOnClickListener {
             startActivity(Intent(this@TelaPrincipalHost, TelaDeAcomodacaoHost::class.java))
         }
