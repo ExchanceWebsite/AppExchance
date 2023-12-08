@@ -26,4 +26,21 @@ data class Acomodacao(
         valorDiaria = null,
         regras = null
     )
+
+    constructor(host: CadastroHostRequest?, localidade: Localidade?,
+                reservado: Boolean?, reserva: Reserva?,descricao: String?,
+                inicioDisponibilidade: String?, fimDisponibilidade: String?,
+                valorDiaria: Int?, regras: String?
+    ) : this(
+        idAcomodacao = 0,
+        host = host,
+        localidade = localidade,
+        reservado = reservado,
+        reserva = reserva,
+        descricao = descricao,
+        inicioDisponibilidade = inicioDisponibilidade,
+        fimDisponibilidade = fimDisponibilidade,
+        valorDiaria = valorDiaria,
+        regras = regras
+    )
 }

@@ -34,11 +34,12 @@ class AcomodacoesHostAdapter(
             val pairInfo = getStringAndColor()
 
             textStatus.apply {
-                text = context.getText(pairInfo.first)
+                text = context.getText(pairInfo.first as Int)
                 setTextColor(context.getColor(pairInfo.second))
             }
             textFamilia.text = "Familía ${getData().host?.nome}"
             textDesc.text = getData().descricao
+            textLocal.text = "${getData().localidade?.pais.toString()}, ${getData().localidade?.cidade.toString()}"
         }
 
         private fun getStringAndColor() =
