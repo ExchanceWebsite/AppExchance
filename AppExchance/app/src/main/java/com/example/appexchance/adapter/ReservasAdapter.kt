@@ -7,8 +7,11 @@ import com.example.appexchance.databinding.AdapterCardLayoutReservaBinding
 import com.example.appexchance.forms.models.Reserva
 
 class ReservasAdapter(
-    val list: List<Reserva>
+    private val list: List<Reserva>,
+    private val onClick: (id: Int, position: Int) -> Unit
 ) : RecyclerView.Adapter<ReservasAdapter.ViewHolder>() {
+
+    private var listReservas = list
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = AdapterCardLayoutReservaBinding
@@ -20,10 +23,16 @@ class ReservasAdapter(
         holder.bind()
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = listReservas.size
 
     inner class ViewHolder(private val binding: AdapterCardLayoutReservaBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.btnCancelar.setOnClickListener {
+                onClick(getData().idReserva, adapterPosition)
+            }
+        }
 
         fun bind() = with(binding) {
             textFamilia.text = "Familía ${getData().host.nome}"
@@ -32,6 +41,14 @@ class ReservasAdapter(
                 "${getData().acomodacao.localidade?.pais}, ${getData().acomodacao.localidade?.cidade}"
         }
 
-        private fun getData() = list[adapterPosition]
+        private fun getData() = listReservas[adapterPosition]
+    }
+
+    fun removeItem(position: Int) {
+        val newList = listReservas.toMutableList()
+        newList.removeAt(position)
+        listReservas = newList
+
+        notifyItemRemoved(position)
     }
 }

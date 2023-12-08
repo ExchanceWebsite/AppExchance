@@ -4,6 +4,7 @@ import RestClient
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appexchance.adapter.ReservasAdapter
 import com.example.appexchance.databinding.ActivityTelaDeNotificacoesBinding
@@ -19,8 +20,10 @@ class TelaDeNotificacoes : AppCompatActivity() {
     }
 
     private val api by lazy {
-        RestClient.create().buscarReservasEstudante(SharedPrefsManager(this).getInfo().idEstudante)
+        RestClient.create()
     }
+
+    private lateinit var adapter: ReservasAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,23 +39,45 @@ class TelaDeNotificacoes : AppCompatActivity() {
     }
 
     private fun requestedReservas() {
-        api.enqueue(object : Callback<List<Reserva>> {
-            override fun onResponse(call: Call<List<Reserva>>, response: Response<List<Reserva>>) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        setupRecyclerView(it)
+        api.buscarReservasEstudante(SharedPrefsManager(this).getInfo().idEstudante)
+            .enqueue(object : Callback<List<Reserva>> {
+                override fun onResponse(
+                    call: Call<List<Reserva>>,
+                    response: Response<List<Reserva>>
+                ) {
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            setupRecyclerView(it)
+                        }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<List<Reserva>>, t: Throwable) {
-                Log.e("ERROR", "Erro na requisição", t)
-            }
-        })
+                override fun onFailure(call: Call<List<Reserva>>, t: Throwable) {
+                    Log.e("ERROR", "Erro na requisição", t)
+                }
+            })
     }
 
     private fun setupRecyclerView(list: List<Reserva>) {
-        binding.rvReservas.adapter = ReservasAdapter(list)
+        adapter = ReservasAdapter(list) { id, posicao ->
+            api.cancelarReserva(id).enqueue(object : Callback<Unit> {
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(
+                            this@TelaDeNotificacoes,
+                            "Cancelado com sucesso!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        adapter.removeItem(posicao)
+                    }
+                }
+
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    Log.e("ERROR", "Erro na exclusão", t)
+                }
+            })
+        }
+        binding.rvReservas.adapter = adapter
     }
 
     private fun setupOnClick() = with(binding) {

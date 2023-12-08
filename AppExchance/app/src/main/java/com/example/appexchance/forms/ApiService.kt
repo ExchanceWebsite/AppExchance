@@ -10,8 +10,10 @@ import com.example.appexchance.forms.models.RespostaDadosIntercambista
 import com.example.appexchance.forms.models.RespostaDoServidor
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -47,5 +49,8 @@ interface ApiService {
 
     @GET("/reservas/reservas-estudante")
     fun buscarReservasEstudante(@Query("idEstudante") idEstudante: Int): Call<List<Reserva>>
+
+    @DELETE("/reservas/{id}")
+    fun cancelarReserva(@Path("id") id: Int): Call<Unit>
 
 }
