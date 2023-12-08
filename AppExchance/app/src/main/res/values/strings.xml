@@ -29,9 +29,11 @@
     <string name="frase_menu">Encontre a Host Family mais próxima do seu local de intercambio.</string>
     <string name="paises">Paises</string>
     <string name="menu">Menu</string>
+    <string name="reserva">Reserva</string>
     <string name="historico">Histórico</string>
     <string name="chat"> Chat</string>
     <string name="perfil"> Perfil</string>
+    <string name="minhas_reservas">Minhas reservas</string>
 
 
     <string name="meu_perfil">Meu Perfil</string>

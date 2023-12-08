@@ -1,53 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:layout_marginEnd="24dp"
-    android:layout_marginTop="22dp"
-    android:layout_marginLeft="22dp"
-    android:background="@drawable/view_pesquisa"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_margin="24dp"
+    android:background="@drawable/view_pesquisa">
 
     <ImageView
-        android:id="@+id/img_um"
+        android:id="@+id/iv_lugar"
         android:layout_width="300dp"
         android:layout_height="129dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/view_pesquisa"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_pesq_host" />
+        android:src="@drawable/img_pesq_host"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/text_familia"
         style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="32dp"
-        android:text="@string/usuario_host2" />
+        app:layout_constraintStart_toStartOf="@id/iv_lugar"
+        app:layout_constraintTop_toBottomOf="@id/iv_lugar"
+        tools:text="@string/usuario_host2" />
 
     <TextView
         android:id="@+id/text_desc"
         style="@style/TextAppearance.AppCompat"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="22dp"
-        android:text="Descrição" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/iv_lugar"
+        app:layout_constraintStart_toStartOf="@id/iv_lugar"
+        app:layout_constraintTop_toBottomOf="@id/text_familia"
+        tools:text="Descrição" />
 
     <TextView
         android:id="@+id/text_local"
         style="@style/TextAppearance.AppCompat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="12dp"
-        android:text="Localidade" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/iv_lugar"
+        app:layout_constraintTop_toBottomOf="@id/text_desc"
+        tools:text="Localidade" />
 
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
