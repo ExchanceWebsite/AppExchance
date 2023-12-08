@@ -31,7 +31,7 @@
     <View
         android:id="@+id/conteiner_menu"
         android:layout_width="458dp"
-        android:layout_height="529dp"
+        android:layout_height="550dp"
         android:layout_margin="20dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/view_menu"
@@ -51,6 +51,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/conteiner_menu" />
+
+    <Button
+        android:id="@+id/btn_cadastro_acomodacao"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="add"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="@id/conteiner_menu"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_acomodacoes"

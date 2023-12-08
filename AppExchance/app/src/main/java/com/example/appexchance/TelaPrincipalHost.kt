@@ -29,6 +29,7 @@ class TelaPrincipalHost : AppCompatActivity() {
 
         displayContentScreen()
         requestedList()
+        addAcomodacao()
         Log.i("TEST", (SharedPrefsManager(this).getInfo().idEstudante).toString())
     }
 
@@ -64,5 +65,11 @@ class TelaPrincipalHost : AppCompatActivity() {
 
     private fun setupRecyclerView(list: List<Acomodacao>) {
         binding.rvAcomodacoes.adapter = AcomodacoesHostAdapter(list)
+    }
+
+    private fun addAcomodacao(){
+        binding.btnCadastroAcomodacao.setOnClickListener {
+            startActivity(Intent(this@TelaPrincipalHost, TelaDeAcomodacaoHost::class.java))
+        }
     }
 }

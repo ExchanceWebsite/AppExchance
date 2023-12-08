@@ -4,6 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="24dp"
     android:layout_marginEnd="24dp"
+    android:layout_marginTop="22dp"
+    android:layout_marginLeft="22dp"
     android:background="@drawable/view_pesquisa"
     android:gravity="center"
     android:orientation="vertical">
@@ -12,7 +14,7 @@
         android:id="@+id/text_status"
         style="@style/TitleText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/view_pesquisa"
@@ -46,8 +48,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="22dp"
         android:text="Descrição" />
+
+    <TextView
+        android:id="@+id/text_local"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="12dp"
+        android:text="Localidade" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -3,6 +3,7 @@ package com.example.appexchance.forms
 import com.example.appexchance.forms.models.Acomodacao
 import com.example.appexchance.forms.models.CadastroHostRequest
 import com.example.appexchance.forms.models.CadastroInterRequest
+import com.example.appexchance.forms.models.Localidade
 import com.example.appexchance.forms.models.LoginRequest
 import com.example.appexchance.forms.models.Reserva
 import com.example.appexchance.forms.models.RespostaDadosIntercambista
@@ -28,6 +29,12 @@ interface ApiService {
 
     @POST("/reservas")
     fun cadastroReserva(@Body reserva: Reserva): Call<Unit>
+
+    @POST("/acomodacoes")
+    fun cadastroAcomodacao(@Body acomodacao: Acomodacao): Call<Unit>
+
+    @POST("/localidades")
+    fun cadastroLocalidade(@Body localidade: Localidade): Call<Localidade>
 
     @GET("/estudantes/estudante")
     fun buscar(@Query("emai") emai: String, @Query("nome") nome: String): Call<RespostaDadosIntercambista>
